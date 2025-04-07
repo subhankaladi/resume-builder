@@ -3,8 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  textarea {
+    @apply border-gray-300 rounded-md shadow-sm;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-200;
+  }
+  
+  .input-field {
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,8 +45,6 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
