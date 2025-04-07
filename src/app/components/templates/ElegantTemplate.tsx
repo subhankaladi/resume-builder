@@ -8,7 +8,7 @@ interface ElegantTemplateProps {
 
 export default function ElegantTemplate({ data }: ElegantTemplateProps) {
   return (
-    <BaseTemplate data={data} className="p-8 max-w-4xl mx-auto bg-white">
+    <BaseTemplate className="p-8 max-w-4xl mx-auto bg-white">
       {/* Header */}
       <div className="mb-12 border-b-2 border-gray-200 pb-8">
         <h1 className="text-4xl font-serif text-gray-900 mb-4">{data.personalInfo.fullName || 'Your Name'}</h1>

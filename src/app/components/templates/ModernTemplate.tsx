@@ -8,7 +8,7 @@ interface ModernTemplateProps {
 
 export default function ModernTemplate({ data }: ModernTemplateProps) {
   return (
-    <BaseTemplate data={data} className="p-8 max-w-4xl mx-auto">
+    <BaseTemplate  className="p-8 max-w-4xl mx-auto">
       {/* Header */}
       <div className="border-b-2 border-blue-500 pb-4 mb-6">
         <h1 className="text-3xl font-bold text-gray-900">{data.personalInfo.fullName || 'Your Name'}</h1>

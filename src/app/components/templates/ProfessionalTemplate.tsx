@@ -8,7 +8,7 @@ interface ProfessionalTemplateProps {
 
 export default function ProfessionalTemplate({ data }: ProfessionalTemplateProps) {
   return (
-    <BaseTemplate data={data} className="p-8 max-w-4xl mx-auto">
+    <BaseTemplate  className="p-8 max-w-4xl mx-auto">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900">{data.personalInfo.fullName || 'Your Name'}</h1>

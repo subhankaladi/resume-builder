@@ -8,7 +8,7 @@ interface CreativeTemplateProps {
 
 export default function CreativeTemplate({ data }: CreativeTemplateProps) {
   return (
-    <BaseTemplate data={data} className="p-8 max-w-4xl mx-auto bg-gradient-to-br from-purple-50 to-pink-50">
+    <BaseTemplate className="p-8 max-w-4xl mx-auto bg-gradient-to-br from-purple-50 to-pink-50">
       {/* Header */}
       <div className="mb-8 relative">
         <div className="absolute -top-4 -left-4 w-24 h-24 bg-purple-500 rounded-full opacity-20"></div>

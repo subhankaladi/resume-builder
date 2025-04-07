@@ -28,12 +28,11 @@ export interface ResumeData {
 }
 
 interface BaseTemplateProps {
-  data: ResumeData;
   className?: string;
   children?: React.ReactNode;
 }
 
-export default function BaseTemplate({ data, className = '', children }: BaseTemplateProps) {
+export default function BaseTemplate({ className = '', children }: BaseTemplateProps) {
   return (
     <motion.div
       id="resume-preview"

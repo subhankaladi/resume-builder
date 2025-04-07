@@ -8,7 +8,7 @@ interface MinimalTemplateProps {
 
 export default function MinimalTemplate({ data }: MinimalTemplateProps) {
   return (
-    <BaseTemplate data={data} className="p-8 max-w-4xl mx-auto">
+    <BaseTemplate className="p-8 max-w-4xl mx-auto">
       {/* Header */}
       <div className="mb-12">
         <h1 className="text-3xl font-light text-gray-900 mb-4">{data.personalInfo.fullName || 'Your Name'}</h1>

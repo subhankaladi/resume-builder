@@ -10,6 +10,23 @@ import ElegantTemplate from '../components/templates/ElegantTemplate';
 import { generatePDF } from '../utils/pdfGenerator';
 import { ResumeData } from '../components/templates/BaseTemplate';
 
+interface ExperienceItem {
+  position: string;
+  company: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
+interface EducationItem {
+  school: string;
+  level?: string;
+  degree: string;
+  field: string;
+  graduationDate: string;
+  gpa: string;
+}
+
 const templates = {
   modern: ModernTemplate,
   professional: ProfessionalTemplate,
@@ -158,7 +175,7 @@ export default function BuilderPage() {
             </div>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-6">Experience</h2>
-            {resumeData.experience.map((exp: any, index: number) => (
+            {resumeData.experience.map((exp: ExperienceItem, index: number) => (
               <div key={index} className="mb-6 p-4 border-2 border-gray-200 rounded-lg hover:border-indigo-300 transition-colors duration-200">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-medium">Experience {index + 1}</h3>
@@ -233,7 +250,7 @@ export default function BuilderPage() {
             </button>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-6">Education</h2>
-            {resumeData.education.map((edu: any, index: number) => (
+            {resumeData.education.map((edu: EducationItem, index: number) => (
               <div key={index} className="mb-6 p-4 border-2 border-gray-200 rounded-lg hover:border-indigo-300 transition-colors duration-200">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-medium">Education {index + 1}</h3>
