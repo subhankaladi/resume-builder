@@ -35,7 +35,7 @@ const templates = {
   elegant: ElegantTemplate
 };
 
-export default function BuilderPage() {
+const BuilderPageClient = () => {
   const searchParams = useSearchParams();
   const templateId = searchParams.get('template') || 'modern';
   const TemplateComponent = templates[templateId as keyof typeof templates] || ModernTemplate;
@@ -393,4 +393,8 @@ export default function BuilderPage() {
       </div>
     </div>
   );
+};
+
+export default function BuilderPage() {
+  return <BuilderPageClient />;
 }
