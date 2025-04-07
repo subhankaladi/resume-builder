@@ -11,23 +11,41 @@ export const generatePDF = async (elementId: string, fileName: string) => {
   // Add a small delay to ensure all styles are applied
   await new Promise(resolve => setTimeout(resolve, 500));
 
+  // Store original styles
+  const originalWidth = element.style.width;
+  const originalHeight = element.style.height;
+  const originalMaxWidth = element.style.maxWidth;
+  const originalOverflow = element.style.overflow;
+
+  // Set fixed width for consistent rendering
+  element.style.width = '800px'; // Fixed width for consistent rendering
+  element.style.maxWidth = '800px';
+  element.style.height = 'auto';
+  element.style.overflow = 'visible';
+
   const canvas = await html2canvas(element, {
     scale: 2,
     useCORS: true,
     logging: false,
-    windowWidth: element.scrollWidth,
-    windowHeight: element.scrollHeight,
-    width: element.scrollWidth,
+    width: 800, // Fixed width
     height: element.scrollHeight,
     onclone: (document) => {
       // Ensure all content is visible in the cloned document
       const clonedElement = document.getElementById(elementId);
       if (clonedElement) {
+        clonedElement.style.width = '800px';
+        clonedElement.style.maxWidth = '800px';
         clonedElement.style.height = 'auto';
         clonedElement.style.overflow = 'visible';
       }
     }
   });
+
+  // Restore original styles
+  element.style.width = originalWidth;
+  element.style.height = originalHeight;
+  element.style.maxWidth = originalMaxWidth;
+  element.style.overflow = originalOverflow;
 
   const imgData = canvas.toDataURL('image/jpeg', 1.0);
   
